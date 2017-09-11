@@ -1,11 +1,8 @@
 // comment
 pipeline {
  agent any
+ deleteDir()
  stages {
-	stage('clean'){
-		step([$class: 'WsCleanup'])
-	}
-
 
         stage('Checkout-git'){
                steps{
