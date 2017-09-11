@@ -3,7 +3,7 @@ pipeline {
  agent any
  stages {
 	step([$class: 'WsCleanup'])
- stages {
+
         stage('Checkout-git'){
                steps{
 		git poll: true, url: 'git@github.com:videocursoscloud/lambda-snapshots.git'
