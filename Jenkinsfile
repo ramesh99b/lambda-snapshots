@@ -2,7 +2,10 @@
 pipeline {
  agent any
  stages {
-	step([$class: 'WsCleanup'])
+	stage('clean'){
+		step([$class: 'WsCleanup'])
+	}
+
 
         stage('Checkout-git'){
                steps{
