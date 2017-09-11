@@ -12,8 +12,18 @@ pipeline {
             	sh '''
 		  bash -c " \
 			  virtualenv entorno_virtual && \
+        		  source ${WORKSPACE}/entorno_virtual/entorno_virtual/bin/activate && \
+                          ${WORKSPACE}/entorno_virtual/bin/python ${WORKSPACE}/entorno_virtual/bin/pip install -r requirements.txt
+                  "
+                '''
+            }
+        } 
+        stage('Ling') {
+            steps {
+            	sh '''
+		  bash -c " \
         		  source entorno_virtual/bin/activate && \
-                          pip install -r requirements.txt
+                          ${WORKSPACE}/entorno_virtual/bin/python ${WORKSPACE}/entorno_virtual/bin/pylint lambda-snapshots.py -s no -E
                   "
                 '''
             }
@@ -23,4 +33,3 @@ pipeline {
 
 
 
-//pylint lambda-snapshots.py -s no -E
