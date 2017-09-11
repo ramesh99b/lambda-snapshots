@@ -12,7 +12,7 @@ pipeline {
             	sh '''
 		  bash -c " \
 			  virtualenv entorno_virtual && \
-        		  source entorno_virtual/bin/activate \
+        		  source entorno_virtual/bin/activate && \
                           pip install -r requirements.txt
                   "
                 '''
